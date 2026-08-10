@@ -12,13 +12,14 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: visible;
+    overflow-y: visible;
     min-height: 100vh;
     background: var(--background-color);
     scrollbar-color: var(--acc-color) var(--background-color);
     scrollbar-width: thin;
     font-size: 16px; /* Base size for rem units */
+    scroll-behavior: smooth;
 }
 
 /* Scrollbar styles (unchanged) */
@@ -48,6 +49,7 @@ html, body {
     position: sticky;
     top: 0;
     z-index: 1000;
+
 }
 
 .nav-title {
@@ -431,12 +433,14 @@ html, body {
   font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   color: #fff;
   margin: 0 0 4px;
+  align-self:center;
 }
 .card-text .event-date {
   font-size: clamp(0.7rem, 1.2vw, 0.85rem);
   color: var(--acc-color);
   font-weight: 600;
   margin: 0 0 2px;
+  align-self:center;
 }
 .card-text p {
   font-size: clamp(0.65rem, 1vw, 0.8rem);
@@ -445,6 +449,7 @@ html, body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  align-self:center;
 }
 
 /* ----- Navigation Buttons ----- */

@@ -16,15 +16,15 @@
                 ☰ <span class="chevron">▾</span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Special events</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#event">Special events</a></li>
                 <li><a href="#">Calendar</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- ===== RESTAURANT MENU (Horizontal Scroll) ===== -->
-    <section class="menu-section">
+    <section class="menu-section" id="menu">
         <div class="menu-container">
 
             <!-- Header -->
@@ -163,7 +163,7 @@
         </div>
     </section>
     <!-- ===== EVENTS SECTION ===== -->
-    <section class="events-section">
+    <section class="events-section" id="event">
         <div class="events-header">
             <h2 class="events-title">Upcoming <span class="accent">Events</span></h2>
             <div class="menu-line"></div>
@@ -215,25 +215,25 @@
   // ----- Your event data (swap with your own) -----
   const events = [
     {
-      image: 'https://via.placeholder.com/600x400/e59500/fff?text=Event+1',
+      image: 'icon.jpg',
       title: 'Summer Festival',
       date: 'July 15, 2026',
       desc: 'Join us for a day of music and food.'
     },
     {
-      image: 'https://via.placeholder.com/600x400/2a2b2a/e59500?text=Event+2',
+      image: 'icon.jpg',
       title: 'Wine Tasting',
       date: 'August 2, 2026',
       desc: 'Exclusive evening with local winemakers.'
     },
     {
-      image: 'https://via.placeholder.com/600x400/333/e59500?text=Event+3',
+      image: 'icon.jpg',
       title: 'Art Exhibition',
       date: 'September 10, 2026',
       desc: 'Modern art from emerging artists.'
     },
     {
-      image: 'https://via.placeholder.com/600x400/444/e59500?text=Event+4',
+      image: 'icon.jpg',
       title: 'Charity Gala',
       date: 'October 5, 2026',
       desc: 'Dinner & auction to support local causes.'
