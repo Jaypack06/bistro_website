@@ -1,9 +1,10 @@
-:root{
+:root {
     --text-color: #eee7e7;
-    --background-color:#2a2b2a;
-    --acc-color:#e59500;
+    --background-color: #2a2b2a;
+    --acc-color: #e59500;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,138 +12,130 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; 
-    overflow-y: auto;   
+    overflow-x: hidden;
+    overflow-y: auto;
     min-height: 100vh;
     background: var(--background-color);
     scrollbar-color: var(--acc-color) var(--background-color);
-    scrollbar-width: thin; /* Makes it thin instead of thick */
+    scrollbar-width: thin;
+    font-size: 16px; /* Base size for rem units */
 }
-/* For Chrome, Safari, Edge */
+
+/* Scrollbar styles (unchanged) */
 ::-webkit-scrollbar {
-    width: 8px; /* Thin, doesn't take up much space */
+    width: 8px;
 }
-
-/* The background track (where the thumb slides) */
 ::-webkit-scrollbar-track {
-    background: var(--background-color); /* Matches your dark theme */
+    background: var(--background-color);
 }
-
-/* The draggable thumb (the moving part) */
 ::-webkit-scrollbar-thumb {
-    background: var(--acc-color); /* Your brand orange (#e59500) */
-    border-radius: 10px; /* Rounded edges for a modern look */
+    background: var(--acc-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #ffa500;
 }
 
-/* Hover effect on the thumb */
-::-webkit-scrollbar-thumb:hover {
-    background: #ffa500; /* Slightly brighter orange on hover */
-}
+/* ===== NAVBAR ===== */
 .nav-contain {
     background-color: black;
-    height: 10vh;
+    height: 60px; /* Fixed height instead of vh for better control */
     width: 100%;
     display: flex;
-    align-items: center;     
-    justify-content: space-between; 
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
 
 .nav-title {
     color: var(--acc-color);
     text-decoration: none;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-/* ===== Dropdown Wrapper ===== */
+/* ===== DROPDOWN ===== */
 .dropdown-wrapper {
-    position: relative;  /* So the menu positions itself under the button */
+    position: relative;
     display: inline-block;
 }
 
-/* ===== The Trigger Button ===== */
 .nav-drop {
     color: var(--text-color);
-    background: transparent;           /* Let the black navbar show through */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle visible border */
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 6px;
-    padding: 6px 16px;
-    font-size: 0.85rem;
+    padding: 5px 12px;
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     transition: all 0.25s ease;
+    white-space: nowrap;
 }
 
-/* Hover effect: accent glow */
 .nav-drop:hover {
     border-color: var(--acc-color);
     color: var(--acc-color);
-    box-shadow: 0 0 12px rgba(229, 149, 0, 0.15); /* Subtle glow */
+    box-shadow: 0 0 12px rgba(229, 149, 0, 0.15);
 }
 
-/* The chevron icon */
 .chevron {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     transition: transform 0.25s ease;
 }
 
-/* Rotate chevron when menu is open */
 .dropdown-wrapper.open .chevron {
     transform: rotate(180deg);
 }
 
-/* ===== The Dropdown Menu ===== */
 .dropdown-menu {
-    display: none;                      /* Hidden by default */
+    display: none;
     position: absolute;
-    top: 110%;                         /* Sits right below the button */
-    right: 0;                          /* Aligns to the right edge */
-    background: #1a1a1a;               /* Slightly lighter than navbar */
-    min-width: 160px;
+    top: 110%;
+    right: 0;
+    background: #1a1a1a;
+    min-width: 150px;
     border-radius: 8px;
-    padding: 8px 0;
-    margin: 0;
+    padding: 6px 0;
     list-style: none;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.06);
     z-index: 999;
 }
 
-/* Show menu when the wrapper has the "open" class */
 .dropdown-wrapper.open .dropdown-menu {
     display: block;
 }
 
-/* ===== Dropdown Links ===== */
 .dropdown-menu li a {
     color: var(--text-color);
     text-decoration: none;
     display: block;
-    padding: 8px 20px;
-    font-size: 0.85rem;
+    padding: 8px 18px;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
     transition: all 0.2s ease;
 }
 
 .dropdown-menu li a:hover {
     background: var(--acc-color);
-    color: #000;                       /* Dark text on orange hover for contrast */
+    color: #000;
 }
 
-/* ===== Divider Line ===== */
 .dropdown-divider {
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    margin: 6px 12px;
+    margin: 4px 12px;
 }
-
 
 /* ===== MENU SECTION ===== */
 .menu-section {
-    padding: 60px 20px 80px;
+    padding: clamp(30px, 5vw, 60px) clamp(12px, 3vw, 20px) clamp(50px, 8vw, 80px);
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -152,24 +145,23 @@ html, body {
     margin: 0 auto;
 }
 
-/* ----- Header ----- */
 .menu-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: clamp(30px, 5vw, 50px);
 }
 
 .menu-tag {
-    font-size: 0.75rem;
+    font-size: clamp(0.6rem, 1.2vw, 0.75rem);
     text-transform: uppercase;
     letter-spacing: 3px;
     color: rgba(255, 255, 255, 0.3);
 }
 
 .menu-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
     font-weight: 800;
     color: #fff;
-    margin: 8px 0 16px;
+    margin: 6px 0 14px;
     letter-spacing: -1px;
 }
 
@@ -185,103 +177,145 @@ html, body {
     border-radius: 4px;
 }
 
-/* ----- Category Titles ----- */
 .menu-category {
-    margin-top: 48px;
+    margin-top: clamp(30px, 5vw, 48px);
 }
 
 .cat-title {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     font-weight: 600;
     color: #fff;
     letter-spacing: 1px;
-    margin: 0 0 16px 0;
+    margin: 0 0 12px 0;
 }
 
-/* ===== HORIZONTAL SCROLL CONTAINER ===== */
+/* ===== SCROLL CONTAINER ===== */
 .scroll-wrapper {
     position: relative;
 }
 
 .scroll-container {
     display: flex;
-    gap: 20px;
+    gap: clamp(12px, 2vw, 20px);
     overflow-x: auto;
-    padding: 8px 4px 24px 4px;
-
-    /* ✨ Smooth Snap Scrolling ✨ */
+    padding: 8px 4px 20px 4px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-
-    /* Hide scrollbar in Firefox */
     scrollbar-width: none;
 }
 
-/* Hide scrollbar in Chrome/Safari/Edge */
 .scroll-container::-webkit-scrollbar {
     display: none;
 }
 
-/* ===== INDIVIDUAL FOOD CARD ===== */
+/* ===== FOOD CARD ===== */
 .food-card {
-    flex: 0 0 180px; /* Fixed width, prevents squishing */
+    flex: 0 0 clamp(130px, 20vw, 180px);
     scroll-snap-align: start;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 16px;
+    border-radius: 14px;
     overflow: hidden;
     transition: transform 0.25s ease, border-color 0.25s ease;
     cursor: pointer;
 }
 
-/* Subtle hover lift */
 .food-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     border-color: rgba(229, 149, 0, 0.3);
 }
 
-/* ----- Card Image ----- */
 .food-card img {
     width: 100%;
-    height: 140px;
-    object-fit: cover; /* Crops images perfectly to fit */
+    height: clamp(100px, 16vw, 140px);
+    object-fit: cover;
     display: block;
 }
 
-/* ----- Card Text Area ----- */
 .card-info {
-    padding: 12px 14px 14px;
+    padding: clamp(8px, 1.5vw, 12px) clamp(10px, 1.5vw, 14px) clamp(10px, 1.5vw, 14px);
     text-align: center;
 }
 
 .card-name {
-    font-size: 0.95rem;
+    font-size: clamp(0.75rem, 1.6vw, 0.95rem);
     font-weight: 500;
     color: #fff;
-    margin: 0 0 4px 0;
+    margin: 0 0 3px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .card-price {
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
     font-weight: 700;
     color: var(--acc-color);
 }
 
-/* ===== RESPONSIVE TWEAKS ===== */
-@media (max-width: 768px) {
+/* ==========================================================
+   📱 RESPONSIVE BREAKPOINTS
+   ========================================================== */
+
+/* Small phones (portrait) */
+@media (max-width: 420px) {
+    .nav-contain {
+        height: 52px;
+        padding: 0 8px;
+    }
+
+    .nav-title {
+        font-size: 0.9rem;
+    }
+
+    .nav-drop {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
+
+    .dropdown-menu {
+        min-width: 130px;
+    }
+
+    .dropdown-menu li a {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
+
     .food-card {
-        flex: 0 0 150px; /* Slightly smaller on phones */
+        flex: 0 0 120px;
     }
     .food-card img {
-        height: 110px;
+        height: 90px;
     }
     .card-name {
-        font-size: 0.85rem;
+        font-size: 0.7rem;
     }
-    .menu-section {
-        padding: 40px 16px 60px;
+    .card-price {
+        font-size: 0.8rem;
+    }
+
+    .menu-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Tablets and small laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .food-card {
+        flex: 0 0 160px;
+    }
+    .food-card img {
+        height: 120px;
+    }
+}
+
+/* Large screens: show more cards at once */
+@media (min-width: 1025px) {
+    .food-card {
+        flex: 0 0 200px;
+    }
+    .food-card img {
+        height: 150px;
     }
 }
