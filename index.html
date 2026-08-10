@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mid Town Bistro</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <nav class="nav-contain">
+        <a class="nav-title" href="#">Bistro</a>
+        <div class="dropdown-wrapper">
+            <button class="nav-drop">
+                ☰ <span class="chevron">▾</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Special events</a></li>
+                <li><a href="#">Calendar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== RESTAURANT MENU (Horizontal Scroll) ===== -->
+<section class="menu-section">
+    <div class="menu-container">
+
+        <!-- Header -->
+        <div class="menu-header">
+            <span class="menu-tag">✦ Visual Feast</span>
+            <h2 class="menu-title">Our <span class="accent">Menu</span></h2>
+            <div class="menu-line"></div>
+        </div>
+
+        <!-- ===== CATEGORY 1: STARTERS ===== -->
+        <div class="menu-category">
+            <h3 class="cat-title">Starters</h3>
+            <div class="scroll-wrapper">
+                <div class="scroll-container">
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/fries/300/200" alt="Truffle Fries">
+                        <div class="card-info">
+                            <h4 class="card-name">Truffle Fries</h4>
+                            <span class="card-price">$9</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/salad/300/200" alt="Burrata Salad">
+                        <div class="card-info">
+                            <h4 class="card-name">Burrata Salad</h4>
+                            <span class="card-price">$14</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/calamari/300/200" alt="Crispy Calamari">
+                        <div class="card-info">
+                            <h4 class="card-name">Crispy Calamari</h4>
+                            <span class="card-price">$12</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/bruschetta/300/200" alt="Bruschetta">
+                        <div class="card-info">
+                            <h4 class="card-name">Bruschetta</h4>
+                            <span class="card-price">$8</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CATEGORY 2: MAINS ===== -->
+        <div class="menu-category">
+            <h3 class="cat-title">Mains</h3>
+            <div class="scroll-wrapper">
+                <div class="scroll-container">
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/salmon/300/200" alt="Grilled Salmon">
+                        <div class="card-info">
+                            <h4 class="card-name">Grilled Salmon</h4>
+                            <span class="card-price">$26</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/steak/300/200" alt="Ribeye Steak">
+                        <div class="card-info">
+                            <h4 class="card-name">Ribeye Steak</h4>
+                            <span class="card-price">$34</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/risotto/300/200" alt="Mushroom Risotto">
+                        <div class="card-info">
+                            <h4 class="card-name">Mushroom Risotto</h4>
+                            <span class="card-price">$22</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/lamb/300/200" alt="Lamb Chops">
+                        <div class="card-info">
+                            <h4 class="card-name">Lamb Chops</h4>
+                            <span class="card-price">$32</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CATEGORY 3: DESSERTS ===== -->
+        <div class="menu-category">
+            <h3 class="cat-title">Desserts</h3>
+            <div class="scroll-wrapper">
+                <div class="scroll-container">
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/tiramisu/300/200" alt="Tiramisu">
+                        <div class="card-info">
+                            <h4 class="card-name">Tiramisu</h4>
+                            <span class="card-price">$9</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/lava/300/200" alt="Lava Cake">
+                        <div class="card-info">
+                            <h4 class="card-name">Lava Cake</h4>
+                            <span class="card-price">$10</span>
+                        </div>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://picsum.photos/seed/cheesecake/300/200" alt="Cheesecake">
+                        <div class="card-info">
+                            <h4 class="card-name">Cheesecake</h4>
+                            <span class="card-price">$8</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+    
+
+
+
+
+
+
+    <script>
+        const wrapper = document.querySelector('.dropdown-wrapper');
+        const button = wrapper.querySelector('.nav-drop');
+
+        // Toggle the dropdown when the button is clicked
+        button.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents the click from closing it immediately
+            wrapper.classList.toggle('open');
+        });
+
+        // Close the dropdown when clicking ANYWHERE outside of it
+        document.addEventListener('click', () => {
+            wrapper.classList.remove('open');
+        });
+
+        // Optional: Close dropdown when clicking a link inside it
+        wrapper.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                wrapper.classList.remove('open');
+            });
+        });
+</script>
+
+</body>
+
+</html>
